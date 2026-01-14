@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>خريطة تجريبية</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    #map { width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script>
+    // إنشاء الخريطة
+    var map = L.map('map').setView([30.5, 32.3], 6);
+
+    // إضافة خريطة OpenStreetMap
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // إضافة نقطة تجريبية
+    L.marker([30.5, 32.3]).addTo(map)
+      .bindPopup("<b>هنا التجربة</b>")
+      .openPopup();
+  </script>
+</body>
+</html>
